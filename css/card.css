@@ -1,0 +1,8 @@
+section {
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+}

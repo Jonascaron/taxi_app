@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+}
+
+:root {
+    --clr-darkgray: #181818;
+    --clr-darkgray2: #303030;
+    --clr-darkgray3: #202020;
+    --clr-white: #ffffff;
+    --clr-yellow: #ffff00;
+
+}
+
+.navigation {
+    top: 0;
+    z-index: 1001;
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    background-color: var(--clr-darkgray);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 17.5px;
+    z-index: 1002;
+    height: 40px;
+    width: 230px;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+}
+
+.logo .logo_text {
+    font-family: 'Lobster';
+    font-size: 30px;
+    color: var(--clr-yellow);
+}
+
+.navigation ul {
+    z-index: 1002;
+    margin-right: 50px;
+    align-items: center;
+    display: flex;
+}
+
+.navigation ul li {
+    margin: 0 5px;
+    list-style: none;
+}
+
+.navigation ul li a {
+    padding: 20px;
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--clr-white);
+}
+
+.navigation ul li p {
+    padding: 20px;
+    font-size: 15px;
+    color: var(--clr-white);
+}
+
+.navigation ul li a:hover {
+    background-color: var(--clr-darkgray2);
+}
+
+.navigation ul li p:hover {
+    background-color: var(--clr-darkgray2);
+}
+
+.dropdown {
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-right: 55px;
+    background-color: var(--clr-darkgray3);
+    min-width: 160px;
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
