@@ -34,22 +34,26 @@ $riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <section>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-            <?php foreach ($riders as $rider) : ?>
-                <p class="card-text">jij: <?php echo $rider['cleint']; ?></p>
-                <p class="card-text">taxi_id: <?php echo $rider['taxi_id']; ?></p>
-                <p class="card-text">driver: <?php echo $rider['driver']; ?></p>
-                <p class="card-text">status: <?php echo $rider['status']; ?></p>
-                <p class="card-text">number_of_passengers: <?php echo $rider['number_of_passengers']; ?></p>
-                <p class="card-text">pickup_datetime: <?php echo $rider['pickup_datetime']; ?></p>
-                <p class="card-text">pickup_address: <?php echo $rider['pickup_address']; ?></p>
-                <p class="card-text">pickup_city: <?php echo $rider['pickup_city']; ?></p>
-                <p class="card-text">destination_datetime: <?php echo $rider['destination_datetime']; ?></p>
-                <p class="card-text">destination_address: <?php echo $rider['destination_address']; ?></p>
-                <p class="card-text">destination_city: <?php echo $rider['destination_city']; ?></p>
-                <p class="card-text">driven_distance: <?php echo $rider['driven_distance']; ?></p>
-                <p class="card-text">totalprice: <?php echo $rider['totalprice']; ?></p>
-                <a href="mijn_ritten.php" class="btn btn-primary">ga terug</a>
-                <?php endforeach; ?>
+                <?php if ($_SESSION['role'] == 'customer') {
+                    foreach ($riders as $rider){
+                        echo'
+                        <p class="card-text">jij: '. $rider['cleint'].' </p>
+                        <p class="card-text">taxi_id: '. $rider['taxi_id']. '</p>
+                        <p class="card-text">driver: '. $rider['driver'] .'</p>
+                        <p class="card-text">status: '. $rider['status'] .'</p>
+                        <p class="card-text">number_of_passengers: '. $rider['number_of_passengers'] .'</p>
+                        <p class="card-text">pickup_datetime: '. $rider['pickup_datetime'] .'</p>
+                        <p class="card-text">pickup_address: '. $rider['pickup_address'] .'</p>
+                        <p class="card-text">pickup_city: '. $rider['pickup_city'] .'</p>
+                        <p class="card-text">destination_datetime: '. $rider['destination_datetime'] .'</p>
+                        <p class="card-text">destination_address: '. $rider['destination_address'] .'</p>
+                        <p class="card-text">destination_city: '. $rider['destination_city'] .'</p>
+                        <p class="card-text">driven_distance: '.$rider['driven_distance'] .'</p>
+                        <p class="card-text">totalprice: '.$rider['totalprice'] .'</p>
+                        <a href="mijn_ritten.php" class="btn btn-primary">ga terug</a>
+                        ';
+                    } 
+                }?>
             </div>
         </div>
     </section>
