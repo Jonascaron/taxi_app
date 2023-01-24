@@ -22,7 +22,7 @@ if ($result->num_rows == 0) {
     $_SESSION["firstname"] = $user["firstname"];
     $_SESSION["lastname"] = $user["lastname"];
     $_SESSION["role"] = $user["role"];
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 
 ?>

@@ -14,20 +14,40 @@ body {
     background-image: url(../image/wallpaperflare.com_wallpaper.jpg);
     background-position: center;
     background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 
-.tabel {
+form {
     margin-top: 75px;
-}
-
-th, td {
-    margin: 0;
+    padding: 10px;
     background-color: #181818;
-    padding: 10px 10px;
-    border: 2px solid #303030;
+    border-radius: 5px;
+}
+
+.p {
+    padding: 10px;
+    background-color: #181818;
+    color: #ffff00;
+    border-radius: 5px;
+}
+
+form p {
+    margin-top: 10px;
+    padding: 0 5px;
     color: #ffff00;
 }
 
-td a {
-    color: #ffff00;
+
+form button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    background-color: #ffff00;
+    color: #181818;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-color: #ffff00;
 }

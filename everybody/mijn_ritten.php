@@ -18,7 +18,7 @@ if ($_SESSION['role'] == 'customer') {
     $riders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 if ($_SESSION['role'] == 'driver') {
-    $sql = "SELECT * ,clients.firstname AS cleint,drivers.firstname AS driver FROM `riders`
+    $sql = "SELECT * ,clients.firstname AS cleint,drivers.firstname AS driver, riders.id AS riders_id FROM `riders`
     LEFT JOIN users clients ON clients.id = riders.cleint_id 
     LEFT JOIN users drivers ON drivers.id = riders.driver_id
     LEFT JOIN cars ON cars.id = riders.taxi_id
@@ -39,26 +39,39 @@ if ($_SESSION['role'] == 'driver') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/mijn_ritten.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/mijn_ritten.css">
 
     <title>Document</title>
 </head>
 
 <body>
-    <nav class="navigation">
+    <nav class="nv">
         <div class="logo">
             <p class="logo_text">Geel & van anaarb</p>
         </div>
         <ul>
-            <li><a href="../taxi_app/">Home</a></li>
-            <li><a href="#">Rit aanvragen</a></li>
-            <li class="dropdown">
-                <p class="dropbtn"><?php echo $_SESSION["firstname"] ?></p>
-                <div div class="dropdown-content">
-                    <a href="logout.php">Log uit</a>
-                </div>
-            </li>
+            <?php if ($_SESSION['role'] == 'customer') : ?>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="weer.php">Weer</a></li>
+                <li><a href="../customer/rit_aanvragen.php">Rit aanvragen</a></li>
+                <li class="dropdown">
+                    <p class="dropbtn"><?php echo $_SESSION["firstname"] ?></p>
+                    <div div class="dropdown-content">
+                        <a href="logout.php">Log uit</a>
+                    </div>
+                </li>
+            <?php elseif ($_SESSION['role'] == 'driver') : ?>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="weer.php">Weer</a></li>
+                <li><a href="../drivers/nieuwe_ritten.php">nieuwe ritten</a></li>
+                <li class="dropdown">
+                    <p class="dropbtn"><?php echo $_SESSION["firstname"] ?></p>
+                    <div div class="dropdown-content">
+                        <a href="logout.php">Log uit</a>
+                    </div>
+                </li>
+            <?php endif; ?>
         </ul>
     </nav>
     <section class="tabel">
@@ -80,21 +93,21 @@ if ($_SESSION['role'] == 'driver') {
                 </thead>
                 <tbody>
             ';
-                foreach ($riders as $rider) {
-                    echo '
-                        <tr>
-                            <td>' . $rider["cleint"] . '</td>
-                            <td>' . $rider["driver"] . '</td>
-                            <td>' . $rider["status"] . '</td>
-                            <td>' . $rider["number_of_passengers"] . '</td>
-                            <td>' . $rider["pickup_datetime"] . '</td>
-                            <td>' . $rider["pickup_address"] . '</td>
-                            <td>' . $rider["destination_address"] . '</td>
-                            <td>' . $rider["totalprice"] . '</td>
-                            <td><a href="mijn_ritten_show.php?id='. $rider["riders_id"] .'">show</a></td>
-                        </tr>';
-                }
-                echo '        
+            foreach ($riders as $rider) {
+                echo '
+                <tr>
+                    <td>' . $rider["cleint"] . '</td>
+                    <td>' . $rider["driver"] . '</td>
+                    <td>' . $rider["status"] . '</td>
+                    <td>' . $rider["number_of_passengers"] . '</td>
+                    <td>' . $rider["pickup_datetime"] . '</td>
+                    <td>' . $rider["pickup_address"] . '</td>
+                    <td>' . $rider["destination_address"] . '</td>
+                    <td>' . $rider["totalprice"] . '</td>
+                    <td><a href="mijn_ritten_show.php?id=' . $rider["riders_id"] . '">show</a></td>
+                </tr>';
+            }
+            echo '        
                 </tbody>
             </table>';
         }
@@ -117,17 +130,17 @@ if ($_SESSION['role'] == 'driver') {
             ';
             foreach ($riders as $rider) {
                 echo '
-                        <tr>
-                            <td>' . $rider["driver"] . '</td>
-                            <td>' . $rider["cleint"] . '</td>
-                            <td>' . $rider["status"] . '</td>
-                            <td>' . $rider["number_of_passengers"] . '</td>
-                            <td>' . $rider["pickup_datetime"] . '</td>
-                            <td>' . $rider["pickup_address"] . '</td>
-                            <td>' . $rider["destination_address"] . '</td>
-                            <td>' . $rider["totalprice"] . '</td>
-                            <td><a href="mijn_ritten_show.php?id='. $rider["riders_id"] .'">show</a></td>
-                        </tr>';
+                <tr>
+                    <td>' . $rider["driver"] . '</td>
+                    <td>' . $rider["cleint"] . '</td>
+                    <td>' . $rider["status"] . '</td>
+                    <td>' . $rider["number_of_passengers"] . '</td>
+                    <td>' . $rider["pickup_datetime"] . '</td>
+                    <td>' . $rider["pickup_address"] . '</td>
+                    <td>' . $rider["destination_address"] . '</td>
+                    <td>' . $rider["totalprice"] . '</td>
+                    <td><a href="mijn_ritten_show.php?id=' . $rider["riders_id"] . '">show</a></td>
+                </tr>';
             }
             echo '        
                 </tbody>

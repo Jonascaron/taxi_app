@@ -14,20 +14,16 @@ body {
     background-image: url(../image/wallpaperflare.com_wallpaper.jpg);
     background-position: center;
     background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
-
-.tabel {
-    margin-top: 75px;
-}
-
-th, td {
-    margin: 0;
+div {
     background-color: #181818;
-    padding: 10px 10px;
-    border: 2px solid #303030;
-    color: #ffff00;
+    border-radius: 5px;
 }
 
-td a {
+h1 {
+    padding: 10px;
+    border-radius: 5px;
     color: #ffff00;
 }

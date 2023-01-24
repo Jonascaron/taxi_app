@@ -14,20 +14,23 @@ body {
     background-image: url(../image/wallpaperflare.com_wallpaper.jpg);
     background-position: center;
     background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 
-.tabel {
+section {
     margin-top: 75px;
+    padding: 10px;
+    background-color: #181818;
+    border-radius: 5px;
 }
 
-th, td {
-    margin: 0;
-    background-color: #181818;
-    padding: 10px 10px;
-    border: 2px solid #303030;
+section h1 {
+    padding: 10px;
     color: #ffff00;
 }
 
-td a {
+section p {
+    padding: 10px;
     color: #ffff00;
 }

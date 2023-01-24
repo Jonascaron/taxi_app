@@ -16,7 +16,7 @@
 
 }
 
-.navigation {
+.nv {
     top: 0;
     z-index: 1001;
     position: fixed;
@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.logo {
+.nv .logo {
     margin-left: 17.5px;
     z-index: 1002;
     height: 40px;
@@ -38,42 +38,42 @@
     align-items: center;
 }
 
-.logo .logo_text {
+.nv .logo .logo_text {
     font-family: 'Lobster';
     font-size: 30px;
     color: var(--clr-yellow);
 }
 
-.navigation ul {
+.nv ul {
     z-index: 1002;
     margin-right: 50px;
     align-items: center;
     display: flex;
 }
 
-.navigation ul li {
+.nv ul li {
     margin: 0 5px;
     list-style: none;
 }
 
-.navigation ul li a {
+.nv ul li a {
     padding: 20px;
     font-size: 15px;
     text-decoration: none;
     color: var(--clr-white);
 }
 
-.navigation ul li p {
+.nv ul li p {
     padding: 20px;
     font-size: 15px;
     color: var(--clr-white);
 }
 
-.navigation ul li a:hover {
+.nv ul li a:hover {
     background-color: var(--clr-darkgray2);
 }
 
-.navigation ul li p:hover {
+.nv ul li p:hover {
     background-color: var(--clr-darkgray2);
 }
 

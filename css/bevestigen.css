@@ -21,7 +21,6 @@ body {
 }
 
 th, td {
-    margin: 0;
     background-color: #181818;
     padding: 10px 10px;
     border: 2px solid #303030;
@@ -29,5 +28,42 @@ th, td {
 }
 
 td a {
+    color: #ffff00;
+}
+
+form{
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #181818;
+    border-radius: 5px;
+}
+
+form select {
+    margin-top: 10px;
+    padding: 0 5px;
+    background-color: #181818;
+    color: #ffff00;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-color: #ffff00;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 0 5px;
+    background-color: #ffff00;
+    color: #181818;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    border-style: solid;
+    border-color: #ffff00;
+}
+
+label {
+    margin-top: 10px;
     color: #ffff00;
 }
